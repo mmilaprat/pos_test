@@ -28,4 +28,52 @@ cd some-dir
 composer install
 ```
 
+When the composer ends you must edit the web/sites/default/settings.php file and add this at the end (Change it acording your environment) of it:
+
+```
+if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
+  include $app_root . '/' . $site_path . '/settings.local.php';
+}
+
+$databases['default']['default'] = array (
+  'database' => '<your_database>',
+  'username' => '<your_username>',
+  'password' => '<your_password>',
+  'prefix' => '',
+  'host' => '<your_db_server>',
+  'port' => '<your_port>',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
+
+$settings['install_profile'] = 'standard';
+$config_directories['sync'] = 'sites/default/files/<your_sync_folder>/sync';
+
+global $content_directories;
+$content_directories['sync'] = $app_root.'\content\sync';
+$content_directories['sync'] = $app_root.'\content\split';
+
+```
+
+also update the value of $settings['trusted_host_patterns'], $settings['file_public_path'] and $settings['hash_salt']
+```
+$settings['trusted_host_patterns'] = [
+  '^127.0.0.1$',
+  '^localhost$',
+  '^your_public_domain$',
+];
+
+$settings['file_public_path'] = 'sites/default/files/public';
+
+//$settings['hash_salt'] = '';
+$settings['hash_salt'] = 'xIe56HxiA-CzcH9PnaIcELUCV0DtulEeqV8On5QTWTMciiFues7Fv7vOVG-abghqjt-GM13VCg';
+```
+
+You must create your new database in your database server and import in it the file stored in the folder database-backup.
+
+Clear cache
+./vendor/drush/drush/drush cr
+
+Acces with  a browser to the new web site, if there are some thmplate error (the template is not loaded correctly) pleas acces to the performance menu option (/admin/config/development/performance), uncheck both checkboxes, Aggregate CSS files and Aggregate JavaScript files, and click over the button "Save configuration".
+
 

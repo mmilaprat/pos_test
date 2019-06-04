@@ -39,7 +39,72 @@
                       "reference": "master"
                     }
                   }
-        }
+        },
+        "jquery-colorbox": {
+            "type": "package",
+                "package": {
+                    "name": "jackmoore/colorbox",
+                    "version": "1.6.4",
+                    "type": "drupal-library",
+                    "dist": {
+                        "url": "https://github.com/jackmoore/colorbox/archive/1.6.4.zip",
+                        "type": "zip"
+                    }
+                }
+        },
+        "jquery.cycle": {
+            "type": "package",
+            "package": {
+                "name": "jquery/cycle",
+                "version": "3.0.3",
+                "type": "drupal-library",
+                "extra": {
+                    "installer-name": "jquery.cycle"
+                },
+                "dist": {
+                    "url": "https://github.com/malsup/cycle/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "jquery.hoverIntent": {
+            "type": "package",
+            "package": {
+                "name": "jmaerckaert/jquery.hoverIntent",
+                "version": "1.9.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/jmaerckaert/jquery.hoverIntent/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "swagger-ui": {
+            "type": "package",
+            "package": {
+                "name": "swagger-api/swagger-ui",
+                "version": "3.20.5",
+                "type": "drupal-library",                    
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/swagger-api/swagger-ui",
+                    "reference": "master"
+                }
+            }
+        },
+        "phpwkhtmltopdf": {
+            "type": "package",
+            "package": {
+                "name": "mikehaertl/phpwkhtmltopdf",
+                "version": "2.4.0",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/mikehaertl/phpwkhtmltopdf/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        }        
+
 
     },
     "require": {
@@ -113,6 +178,7 @@
         "drupal/ultimate_cron": "^2.0",
         "drupal/video_embed_field": "^2.0",
         "drupal/view_mode_page": "^3.1",
+        "drupal/viewerjs": "1.x-dev",
         "drupal/views_base_url": "^1.0",
         "drupal/views_field_formatter": "^1.8",
         "drupal/views_infinite_scroll": "^1.5",
@@ -127,8 +193,13 @@
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
+        "drupal/libraries": "^3.0",
         "custom/pos": "*",
-        "aleksip/shila-drupal-theme": "*"
+        "aleksip/shila-drupal-theme": "*",
+        "jackmoore/colorbox": "1.6.4",
+        "jquery/cycle": "3.0.3",
+        "jmaerckaert/jquery.hoverIntent": "1.9.0",
+        "swagger-api/swagger-ui": "3.20.5"
     },
     "require-dev": {
         "webflo/drupal-core-require-dev": "^8.7.1"
