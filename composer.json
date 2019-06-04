@@ -79,6 +79,30 @@
                 }
             }
         },
+        "tobia/Pause": {
+            "type": "package",
+            "package": {
+                "name": "tobia/Pause",
+                "version": "0.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/tobia/Pause/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "douglascrockford/JSON-js": {
+            "type": "package",
+            "package": {
+                "name": "douglascrockford/JSON-js",
+                "version": "0.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/douglascrockford/JSON-js/archive/master.zip",
+                    "type": "zip"
+                }
+            }
+        },
         "swagger-ui": {
             "type": "package",
             "package": {
@@ -95,8 +119,8 @@
         "phpwkhtmltopdf": {
             "type": "package",
             "package": {
-                "name": "mikehaertl/phpwkhtmltopdf",
-                "version": "2.4.0",
+                "name": "library_mikehaertl/phpwkhtmltopdf",
+                "version": "2.3",
                 "type": "drupal-library",
                 "dist": {
                     "url": "https://github.com/mikehaertl/phpwkhtmltopdf/archive/master.zip",
@@ -199,7 +223,10 @@
         "jackmoore/colorbox": "1.6.4",
         "jquery/cycle": "3.0.3",
         "jmaerckaert/jquery.hoverIntent": "1.9.0",
-        "swagger-api/swagger-ui": "3.20.5"
+        "tobia/Pause": "0.1",
+        "douglascrockford/JSON-js": "0.1",
+        "swagger-api/swagger-ui": "3.20.5",
+        "library_mikehaertl/phpwkhtmltopdf": "^2.3"
     },
     "require-dev": {
         "webflo/drupal-core-require-dev": "^8.7.1"
@@ -214,7 +241,8 @@
     },
     "autoload": {
         "classmap": [
-            "scripts/composer/ScriptHandler.php"
+            "scripts/composer/ScriptHandler.php",
+            "scripts/composer/ScriptPoS.php"
         ],
         "files": ["load.environment.php"]
     },
@@ -226,10 +254,12 @@
             "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
         ],
         "post-install-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrupalProject\\composer\\ScriptPoS::renameLibrariesFolders"
         ],
         "post-update-cmd": [
-            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
+            "DrupalProject\\composer\\ScriptPoS::renameLibrariesFolders"
         ]
     },
     "extra": {
