@@ -80,17 +80,18 @@ Acces with  a browser to the new web site, if there are some thmplate error (the
 ## Possible bug
 If when we access to the /admin/group page we get an error like this:
 
+```
 Drupal\Core\Entity\Exception\UndefinedLinkTemplateException: No link template 'edit-form.objective' found for the 'group' entity type in Drupal\Core\Entity\EntityBase->toUrl() (line 226 of /var/www/drupal8composer/web/core/lib/Drupal/Core/Entity/EntityBase.php).
+```
 
 We need to apply a patch manually to solve this bug.
 
-More information in:
-•	http://driver-pos-ticket.atosresearch.eu/content/form-mode-manager-error
-•	https://www.drupal.org/project/group/issues/3051018 
-•	https://www.drupal.org/files/issues/2019-05-14/3051018-admin-group-page-breaks-when-additional-group-form-modes-are-defined.patch
+More information in:   
+•	http://driver-pos-ticket.atosresearch.eu/content/form-mode-manager-error   
+•	https://www.drupal.org/project/group/issues/3051018    
+•	https://www.drupal.org/files/issues/2019-05-14/3051018-admin-group-page-breaks-when-additional-group-form-modes-are-defined.patch   
 
 In the moment of write this document the patch was:
-
 
 ```
 diff --git a/src/Entity/Group.php b/src/Entity/Group.php
