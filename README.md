@@ -1,3 +1,5 @@
+# UNDER CONSTRUCTION
+
 # Composer template for the PoS project (a Drupal site)
 
 
@@ -19,7 +21,7 @@ for your setup.
 After that you can clone this repositori:
 
 ```
-git clone .... some-dir
+git clone this_repo_url some-dir
 ```
 
 After do the clone of the repository you can use compose to install all the dependecies
@@ -69,12 +71,12 @@ $settings['file_public_path'] = 'sites/default/files/public';
 $settings['hash_salt'] = 'xIe56HxiA-CzcH9PnaIcELUCV0DtulEeqV8On5QTWTMciiFues7Fv7vOVG-abghqjt-GM13VCg';
 ```
 
-You must create your new database in your database server and import in it the file stored in the folder database-backup.
+You must create your new database in your database server and import in it the file stored in the folder db_backup.
 
 Clear cache
 ./vendor/drush/drush/drush cr
 
-Acces with  a browser to the new web site, if there are some thmplate error (the template is not loaded correctly) pleas acces to the performance menu option (/admin/config/development/performance), uncheck both checkboxes, Aggregate CSS files and Aggregate JavaScript files, and click over the button "Save configuration".
+Acces with a browser to the new web site (credentials admin/admin), if there are some template error (the template is not loaded correctly) please access to the performance menu option (/admin/config/development/performance), uncheck both checkboxes, Aggregate CSS files and Aggregate JavaScript files, and click over the button "Save configuration".
 
 
 ## Possible bug
