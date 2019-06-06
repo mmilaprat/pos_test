@@ -79,6 +79,9 @@ Clear cache
 Acces with a browser to the new web site (credentials admin/admin), if there are some template error (the template is not loaded correctly) please access to the performance menu option (/admin/config/development/performance), uncheck both checkboxes, Aggregate CSS files and Aggregate JavaScript files, and click over the button "Save configuration".
 
 
+Access to the /update.php check to check if there are some pending update.
+
+
 ## Possible bug
 If when we access to the /admin/group page we get an error like this:
 
