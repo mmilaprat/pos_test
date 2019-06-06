@@ -14,28 +14,28 @@
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         },
-        "PoS-custom": {
+        "custom/pos_utils": {
             "type": "package",
                   "package": {
-                    "name": "custom/pos",
+                    "name": "custom/pos_utils",
                     "version": "master",
                     "type": "drupal-custom-module",                    
                     "source": {
                       "type": "git",
-                      "url": "https://github.com/DRIVER-EU/PoS",
+                      "url": "https://github.com/mmilaprat/pos_utils",
                       "reference": "master"
                     }
                   }
         },
-        "PoS-theme": {            
+        "custom/reboot": {            
             "type": "package",
                   "package": {
-                    "name": "aleksip/shila-drupal-theme",
+                    "name": "custom/reboot",
                     "version": "master",
                     "type": "drupal-custom-theme",                    
                     "source": {
                       "type": "git",
-                      "url": "https://github.com/aleksip/shila-drupal-theme",
+                      "url": "https://github.com/mmilaprat/pos_theme",
                       "reference": "master"
                     }
                   }
@@ -145,7 +145,7 @@
         "drupal/console": "^1.0.2",
         "drupal/content_browser": "^1.0@alpha",
         "drupal/content_sync": "^2.0",
-        "drupal/core": "^8.7.1",
+        "drupal/core": "^8.7.3",
         "drupal/ctools": "^3.0",
         "drupal/customerror": "^1.0",
         "drupal/devel": "^2.0",
@@ -218,18 +218,18 @@
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
         "drupal/libraries": "^3.0",
-        "custom/pos": "*",
-        "aleksip/shila-drupal-theme": "*",
+        "custom/pos_utils": "*",
         "jackmoore/colorbox": "1.6.4",
         "jquery/cycle": "3.0.3",
         "jmaerckaert/jquery.hoverIntent": "1.9.0",
         "tobia/Pause": "0.1",
         "douglascrockford/JSON-js": "0.1",
         "swagger-api/swagger-ui": "3.20.5",
-        "library_mikehaertl/phpwkhtmltopdf": "^2.3"
+        "library_mikehaertl/phpwkhtmltopdf": "^2.3",
+        "custom/reboot": "*"
     },
     "require-dev": {
-        "webflo/drupal-core-require-dev": "^8.7.1"
+        "webflo/drupal-core-require-dev": "^8.7.3"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -274,7 +274,7 @@
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
             "drush/Commands/{$name}": ["type:drupal-drush"],
             "web/modules/custom/{$name}": ["type:drupal-custom-module"],
-            "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
+            "web/themes/{$name}": ["type:drupal-custom-theme"]
         },
         "drupal-scaffold": {
             "initial": {
