@@ -77,3 +77,34 @@ Clear cache
 Acces with  a browser to the new web site, if there are some thmplate error (the template is not loaded correctly) pleas acces to the performance menu option (/admin/config/development/performance), uncheck both checkboxes, Aggregate CSS files and Aggregate JavaScript files, and click over the button "Save configuration".
 
 
+## Possible bug
+If when we access to the /admin/group page we get an error like this:
+
+Drupal\Core\Entity\Exception\UndefinedLinkTemplateException: No link template 'edit-form.objective' found for the 'group' entity type in Drupal\Core\Entity\EntityBase->toUrl() (line 226 of /var/www/drupal8composer/web/core/lib/Drupal/Core/Entity/EntityBase.php).
+
+We need to apply a patch manually to solve this bug.
+
+More information in:
+•	http://driver-pos-ticket.atosresearch.eu/content/form-mode-manager-error
+•	https://www.drupal.org/project/group/issues/3051018 
+•	https://www.drupal.org/files/issues/2019-05-14/3051018-admin-group-page-breaks-when-additional-group-form-modes-are-defined.patch
+
+In the moment of write this document the patch was:
+
+
+```
+diff --git a/src/Entity/Group.php b/src/Entity/Group.php
+index fef2494..349031f 100644
+--- a/src/Entity/Group.php
++++ b/src/Entity/Group.php
+@@ -34,6 +34,7 @@ use Drupal\user\UserInterface;
+  *       "html" = "Drupal\group\Entity\Routing\GroupRouteProvider",
+  *     },
+  *     "form" = {
++ *       "default" = "Drupal\group\Entity\Form\GroupForm",
+  *       "add" = "Drupal\group\Entity\Form\GroupForm",
+  *       "edit" = "Drupal\group\Entity\Form\GroupForm",
+  *       "delete" = "Drupal\group\Entity\Form\GroupDeleteForm",
+```
+
+The file “Group.php” is in “web\modules\contrib\group\src\Entity”
